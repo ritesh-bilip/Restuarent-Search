@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      width: 300px;
+      margin: 15px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 300px;
+      height: 200px;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.5em;
+      margin: 0 0 10px;
+    }
+
+    .card-description {
+      color: #555;
+      font-size: 1em;
+      margin: 0 0 20px;
+    }
+
+    .card-price {
+      font-size: 1.2em;
+      color: #e67e22;
+    }
+
+    #cart-items {
+      list-style-type: none;
+      padding: 0;
+      /* justify-items: end; */
+    }
+
+    #cart-items li {
+      padding: 5px 0;
+      /* justify-items: end; */
+    }
+
+    #cart {
+      /* width: 80%;
+      text-align: right;
+      position: absolute;
+      /* or fixed, depending on your needs */
+      /* bottom: 20px; */
+      /* right: 20px; */
+      /* top: 50px; */
+      width: 230px;
+      height: 400px;
+      text-align: right;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      top: 50px;
+      background-color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav>Restaurants Food</nav>
+  <div class="container">
+    <div class="card">
+      <img src="imge/biriyani.jpeg" alt="Food Item">
+      <div class="card-content" data-name="biriyani" data-price="12.99">
+        <h2 class="card-title">Biriyani</h2>
+        <p class="card-description">Biryani, a cherished dish from the Indian subcontinent, combines fragrant basmati
+          rice with marinated meat or vegetables, infused with a blend of aromatic spices like saffron, cumin, and
+          cardamom. Each regional variation, from Hyderabadi to Kolkata, offers a unique culinary experience, celebrated
+          for its rich flavors and cultural significance in festive gatherings worldwide.</p>
+        <p class="card-price">$12.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/burgger.jpg" alt="Food Item">
+      <div class="card-content" data-name="burgger" data-price="12.99">
+        <h2 class="card-title">Burger</h2>
+        <p class="card-description">A burger is a classic American fast-food staple consisting of a grilled or fried
+          patty typically made from ground beef, served in a bun with various toppings such as lettuce, tomato, onion,
+          cheese, pickles, and condiments like ketchup and mustard. It's known for its versatility and widespread
+          popularity across the globe, with countless variations including vegetarian options using ingredients like
+          grilled portobello mushrooms or veggie patties.</p>
+        <p class="card-price">$14.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/capachino-coffe.jpg" alt="Food Item">
+      <div class="card-content" data-name="capachino" data-price="12.99">
+        <h2 class="card-title">Cappuccino</h2>
+        <p class="card-description">A cappuccino is a popular espresso-based coffee drink that originated in Italy,
+          typically consisting of equal parts espresso, steamed milk, and frothed milk foam. It is known for its creamy
+          texture, rich flavor, and often adorned with a sprinkle of cocoa powder or cinnamon on top. Cappuccinos are
+          enjoyed for their balance of espresso intensity and velvety milk, making them a favorite choice in cafes and
+          coffee shops worldwide.</p>
+        <p class="card-price">$10.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+  <div class="container">
+    <div class="card">
+      <img src="food-imge/casey.jpg" alt="Food Item">
+      <div class="card-content" data-name="casey" data-price="12.99">
+        <h2 class="card-title">Casey</h2>
+        <p class="card-description">A brief description of the food item goes here. It's tasty and healthy!</p>
+        <p class="card-price">$12.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/chowmin.jpg" alt="Food Item">
+      <div class="card-content" data-name="chowmin" data-price="12.99">
+        <h2 class="card-title">Chili Chowmin</h2>
+        <p class="card-description">"Chili Chow Mein" typically refers to a spicy and flavorful dish that combines
+          elements of Chinese and Indian cuisine. It's a fusion dish popular in some regions, especially in parts of
+          India and Southeast Asia.</p>
+        <p class="card-price">$14.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/coctal.jpg" alt="Food Item">
+      <div class="card-content" data-name="coctal" data-price="12.99">
+        <h2 class="card-title">Coctail</h2>
+        <p class="card-description">A cocktail is a mixed drink typically made with a combination of spirits (such as
+          vodka, rum, gin, or whiskey), liqueurs, fruit juices, syrups, bitters, and other flavorings. Cocktails are
+          often served chilled and garnished creatively, making them popular in bars, restaurants, and social gatherings
+          worldwide.</p>
+        <p class="card-price">$10.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+  <div class="container">
+    <div class="card">
+      <img src="food-imge/coffe.jpg" alt="Food Item">
+      <div class="card-content" data-name="coffe" data-price="12.99">
+        <h2 class="card-title">Coffe</h2>
+        <p class="card-description">Coffee, made from roasted coffee beans, is enjoyed globally in various forms like
+          espresso, cappuccino, and cold brew, each offering distinct flavors and brewing methods. It's cherished for
+          its cultural significance, social appeal, and potential health benefits, making it a ubiquitous and beloved
+          beverage.</p>
+        <p class="card-price">$12.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/coldcoffe.jpg" alt="Food Item">
+      <div class="card-content" data-name="coldcoffe" data-price="12.99">
+        <h2 class="card-title">Coldcoffe</h2>
+        <p class="card-description">Coffee, made from roasted coffee beans, is enjoyed globally in various forms like
+          espresso, cappuccino, and cold brew, each offering distinct flavors and brewing methods. It's cherished for
+          its cultural significance, social appeal, and potential health benefits, making it a ubiquitous and beloved
+          beverage.</p>
+        <p class="card-price">$14.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/desert-1.jpg" alt="Food Item">
+      <div class="card-content" data-name="desert-1" data-price="12.99">
+        <h2 class="card-title">Desert </h2>
+        <p class="card-description">In culinary terms, "dessert" refers to a sweet course typically enjoyed after the
+          main meal. It encompasses a wide range of indulgent treats and confections, including cakes, pies, puddings,
+          ice creams, and fruit-based dishes, designed to satisfy the palate with their sweetness and often decorative
+          presentation. Desserts are enjoyed worldwide as a delightful conclusion to a meal or as standalone treats for
+          special occasions.</p>
+        <p class="card-price">$10.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+  <div class="container">
+    <div class="card">
+      <img src="food-imge/desert.jpg" alt="Food Item">
+      <div class="card-content" data-name="desert" data-price="12.99">
+        <h2 class="card-title">Desert</h2>
+        <p class="card-description">In culinary terms, "dessert" refers to a sweet course typically enjoyed after the
+          main meal. It encompasses a wide range of indulgent treats and confections, including cakes, pies, puddings,
+          ice creams, and fruit-based dishes, designed to satisfy the palate with their sweetness and often decorative
+          presentation. Desserts are enjoyed worldwide as a delightful conclusion to a meal or as standalone treats for
+          special occasions.</p>
+        <p class="card-price">$12.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/deserts-2.jpg" alt="Food Item">
+      <div class="card-content" data-name="deserts-2" data-price="12.99">
+        <h2 class="card-title">Deserts</h2>
+        <p class="card-description">In culinary terms, "dessert" refers to a sweet course typically enjoyed after the
+          main meal. It encompasses a wide range of indulgent treats and confections, including cakes, pies, puddings,
+          ice creams, and fruit-based dishes, designed to satisfy the palate with their sweetness and often decorative
+          presentation. Desserts are enjoyed worldwide as a delightful conclusion to a meal or as standalone treats for
+          special occasions.</p>
+        <p class="card-price">$14.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="food-imge/fries.jpg" alt="Food Item">
+      <div class="card-content" data-name="fries" data-price="12.99">
+        <h2 class="card-title">Fries</h2>
+        <p class="card-description">"Fries," short for French fries, are a beloved and popular side dish made from
+          potatoes. They are typically cut into elongated strips, deep-fried until crispy on the outside and soft on the
+          inside, and seasoned with salt. French fries are enjoyed hot and are commonly served alongside burgers,
+          sandwiches, or as a snack on their own. Variations include seasoned fries, curly fries, and sweet potato
+          fries, each offering a unique twist on this classic comfort food.</p>
+        <p class="card-price">$10.99</p>
+        <button onclick="addItem(this)">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+  <section id="cart">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: $0.00</p>
+    <button onclick="proceedToBill()">Proceed to Bill</button>
+  </section>
+  <script src="cartbill.js"></script>
+
+</body>
+
+</html>

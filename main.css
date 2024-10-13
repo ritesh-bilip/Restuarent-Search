@@ -1,0 +1,121 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background-image: url("imge/fotor-ai-2024101002526.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+main {
+  padding: 20px;
+}
+
+.restaurants {
+  margin-top: 40px;
+}
+
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.restaurant-card {
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.restaurant-card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+.restaurant-card h3 {
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
